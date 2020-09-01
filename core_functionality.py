@@ -4,7 +4,7 @@ Contains character classes, Enemies, and methods of attack.
 (Write more smart stuff, like how to call stuff)
 """
 import dice
-
+import inputs
 class Player:
     """
     Parent class for the playable characters.
@@ -93,11 +93,15 @@ class Ranger(Player):
 
         # Attacks
     def attack(self, target):
-        choice = input(
-            "What would you like to do?\n"
-            "Use: Dagger, Bow or Ability)\n: "
-            ).lower()
-
+        options = ["dagger", "bow", "ability"]
+        print(
+            "What do you want to do?\n"
+            "Use Dagger, Bow or Ability"
+        )
+        while True:
+            choice = inputs.check_input(options)
+            if choice != False:
+                break
         
         if choice == "dagger":
             self.stab(target)
@@ -106,11 +110,16 @@ class Ranger(Player):
             self.shoot(target)
 
         elif choice =="ability":
-            ability = input(
+            options = ["rapidshot", "back"]
+            print(
                 "What ability do you want to use?\n"
                 "'Rapidshot': Shoot the target 3 times\n"
-                "'back': to go back to previous menue\n: "
-            ).lower()
+                "'back': to go back to previous menue "
+            )
+            while True:
+                ability = inputs.check_input(options)
+                if ability != False:
+                    break
 
             if ability == "rapidshot":
                 self.rapidhot_attack(target)
