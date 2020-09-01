@@ -19,10 +19,9 @@ map_grid = [        # map size 10x10
 map_size_x = 10
 map_size_y = 10
 
-def move(player):
+def moving(player):
     special_move_options = [] # add list of special options, such as in a town etc
     
-
     def check_options(player_position, *special_option):
         #check where player can move
         # Fix something for special options (Where it is handled)
@@ -42,40 +41,43 @@ def move(player):
         
         return(check_x + check_y)
 
-    move_options = check_options(player.pos)
-    base_options = ["West", "East", "North", "South"]
-    options = []
-    index = 0
-    for option in move_options:
-        if option == True:
-            options.append(base_options[index].lower())
-        else:
-            pass
-        index += 1
-    
-    print(f"Your options are: {options}")
+    def move():
+        move_options = check_options(player.pos)
+        base_options = ["West", "East", "North", "South"]
+        options = []
+        index = 0
+        for option in move_options:
+            if option == True:
+                options.append(base_options[index].lower())
+            else:
+                pass
+            index += 1
+        
+        print(f"Your options are: {options}")
 
-    while True:
-        choice = inputs.check_input(options)
-        if choice != False:
-            break
+        while True:
+            choice = inputs.check_input(options)
+            if choice != False:
+                break
 
-    if choice == "west":
-        player.pos[0] -= 1 
-        print("Moved west")
-        
-    elif choice == "east":
-        player.pos[0] += 1
-        print("Moved east")
-        
-    elif choice == "north":
-        player.pos[1] -= 1
-        print("Moved north")
-        
-    elif choice == "south":
-        player.pos[1] +=1
-        print("Moved south")
-        
+        if choice == "west":
+            player.pos[0] -= 1 
+            print("Moved west")
+            
+        elif choice == "east":
+            player.pos[0] += 1
+            print("Moved east")
+            
+        elif choice == "north":
+            player.pos[1] -= 1
+            print("Moved north")
+            
+        elif choice == "south":
+            player.pos[1] +=1
+            print("Moved south")
+
+    move()
+
 
 for i in range(9):
-    move(player)
+    moving(player)

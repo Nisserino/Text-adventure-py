@@ -33,6 +33,8 @@ def main_menue():
 
 
     if choice == "saves":
+        # check for saves, print options, run through base loop as save
+        #base_loop(save)
         pass
     elif choice == "start":
         base_loop()
