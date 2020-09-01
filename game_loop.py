@@ -11,24 +11,6 @@ def start_game():
     """
     main_menue()
 
-def check_input(input_options): # Seems to get angry, and make you write quit twice
-    
-    player_input = input(": ").lower() # Do fix
-    
-    if player_input == "help": # change to "!help(?)"
-        
-        print(input_options)
-        check_input(input_options)
-    else:
-
-        if player_input in input_options:
-            return(player_input)
-        else: 
-            print("Did you spell that right?\nTry again!\n"
-            "To see your options again, type 'help'"
-            )
-            check_input(input_options) 
-
 
 def check_saves():
     #initialize base_loop with player object
@@ -45,10 +27,11 @@ def main_menue():
     options = ["saves", "start", "quit"]
 
     while True:
-        choice = check_input(options)
+        choice = inputs.check_input(options)
         if choice != False:
             break
-    
+
+
     if choice == "saves":
         pass
     elif choice == "start":

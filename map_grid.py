@@ -46,8 +46,8 @@ def move(player):
         index += 1
     
     print(f"Your options are: {options}")
-    while True:
 
+    while True:
         choice = inputs.check_input(options)
         if choice != False:
             break
