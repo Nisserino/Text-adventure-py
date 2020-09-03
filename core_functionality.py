@@ -5,6 +5,8 @@ Contains character classes, Enemies, and methods of attack.
 """
 import dice
 import inputs
+
+
 class Player:
     """
     Parent class for the playable characters.
@@ -41,52 +43,47 @@ class Player:
         print(f"You dealt {dmg}!")
 
 
-
 class Ranger(Player):
-    
+
     def __init__(self, name):
         Player.__init__(self, name)
-
-
 
     def stab(self, target):
         roll = dice.d4()
         crit = dice.d10()
         hit = dice.hit(self, self.dex)
         if crit == 10:
-            roll += dice.d4() 
+            roll += dice.d4()
             print("Crit!")
         else:
-            pass # pass or continue?
-        
+            pass    # pass or continue?
+
         if hit == True:
             self.deal_dmg(roll, self.dex, target)
         else:
             print("You swing, but you missed!\n")
 
-        #fire 3 arrows at the same time!
-        #Balance by decreasing hit chance for next arrow (first arrow is d20)
-    def rapidhot_attack(self, target): # In future(when there are more enemies in combat)
+        # fire 3 arrows at the same time!
+        # Balance by decreasing hit chance for next arrow (first arrow is d20)
+    def rapidhot_attack(self, target):  # In future(when there are more enemies in combat)
                                         # change the attack to be able to attack more enemies
 
         for i in range(3):
             roll = dice.d4()
-            hit = dice.hit(self, self.dex - i * 2) # test and balance
+            hit = dice.hit(self, self.dex - i * 2)  # test and balance
             if hit == True:
                 dmg = roll
                 self.deal_dmg(dmg, self.dex, target)
             else:
                 print(f"{self.name} shot, but missed!")
 
-        
-
     # add bool to see if attack is ranged or not
     # also add this to return value of function
-    def shoot(self, target): 
+    def shoot(self, target):
         roll = dice.d6()
 
-        hit =  dice.hit(self, self.dex)
-        if hit == True:             
+        hit = dice.hit(self, self.dex)
+        if hit == True:
             self.deal_dmg(roll, self.dex, target)
         elif hit == False:
             print(f"{self.name} shot, but missed!\nOh the humility!\n")
@@ -102,14 +99,14 @@ class Ranger(Player):
             choice = inputs.check_input(options)
             if choice != False:
                 break
-        
+
         if choice == "dagger":
             self.stab(target)
 
         elif choice == "bow":
             self.shoot(target)
 
-        elif choice =="ability":
+        elif choice == "ability":
             options = ["rapidshot", "back"]
             print(
                 "What ability do you want to use?\n"
@@ -127,13 +124,12 @@ class Ranger(Player):
             elif ability == "back":
                 self.attack(target)
 
-        
 
 class Mage(Player):
     def __init__(self, name):
         Player.__init__(self, name)
         self.mana = 15
-        
+
     def spell_attack(self, user1, user2, spell_choice):
         try:
             dmg = user1.spells[spell_choice][0]
@@ -141,22 +137,23 @@ class Mage(Player):
             user2.hp -= dmg    
         except KeyError:
             print(f"Couldn't find spell '{spell_choice}'")
-                
+
     spells = {
         "fireball": [7, 5],
         "frost bolt": [4, 3]
     }
 
+
 class Guardian(Player):
     def __init__(self, name):
         Player.__init__(self, name)
-        self.hp = 20        
+        self.hp = 20
+
 
 class Cleric(Player):
     def __init__(self, name):
         Player.__init__(self, name)
         self.mana = 15
-
 
 
 class Enemy:
@@ -185,6 +182,7 @@ class Enemy:
         target.hp -= dmg
         print(f"{self.name} dealt {dmg} damage!")
 
+
 class Skeleton(Enemy):
     def __init__(self):
         self.name = "Dooters"
@@ -195,15 +193,15 @@ class Skeleton(Enemy):
     def scratch(self, target):
         roll = dice.d4()
 
-        hit =  dice.hit(self, self.dex)
+        hit = dice.hit(self, self.dex)
         if hit == True:
             self.deal_dmg(roll, self.dex, target)
             self.blood = True
         else:
             print("Couldn't break through defense!")
-        
-    def curse(self, target): # Change it into a while, that deals the player damage
-                            # if curse == True on change to self.hp
+
+    def curse(self, target):
+
         print("oooga boooga")
 
     def attack(self, target):
@@ -213,32 +211,15 @@ class Skeleton(Enemy):
         elif self.blood == True:
             self.curse(target)
 
-    
-
-
 
 class Wolf(Enemy):
     def __init__(self):
         self.name = "Wolf"
         self.hp = 7
 
+
 class Orc(Enemy):
     def __init__(self):
         self.name = "Orc"
         self.hp = 10
 
-
-
-# player1 = Guardian("hello")
-# print(player1.name)
-
-
-
-
-
-
-#range_attack(p1, enemy1)
-#spell_attack(p3, enemy1, input("Enter spell of choice: "))
-#print(f'{p1.name} has {p1.arrows} arrows left \nwolf has {enemy1.hp} hp left')
-#To set up basic run of game, lock in inf_loop, with input options
-#move, look etc, before input, an if statement checks what is allowed to do.

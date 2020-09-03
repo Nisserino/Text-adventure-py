@@ -5,6 +5,8 @@ Will handle the basic loop of the game
 Contains the basic menue
 Is the games run-file
 """
+
+
 def start_game():
     """
     Function to start the game
@@ -15,6 +17,7 @@ def start_game():
 def check_saves():
     #initialize base_loop with player object
     pass
+
 
 def main_menue():
     print(
@@ -30,24 +33,23 @@ def main_menue():
         choice = inputs.check_input(options)
         if choice != False:
             break
-
-
     if choice == "saves":
         # check for saves, print options, run through base loop as save
-        #base_loop(save)
+        # base_loop(save)
         pass
     elif choice == "start":
         base_loop()
     elif choice == "quit":
         exit
     else:
-        print("Did you spell that right?\nTry again!\n"
+        print(
+            "Did you spell that right?\nTry again!\n"
             "To see your options again, type 'options'"
-        )
-        choice = inputs.check_input(options)    
-    
+            )
+        choice = inputs.check_input(options)
 
-def options(): # Will probably not be needed?
+
+def options():  # Will probably not be needed?
     """
     Options:
 
@@ -57,6 +59,7 @@ def options(): # Will probably not be needed?
     Back : Goes back to previous menue
     """
     pass
+
 
 def base_loop(*save):
     """
@@ -73,9 +76,9 @@ def base_loop(*save):
     else:
         print("Let's get you started!")
         player = cc.create_character()
-    
+
     while True:
         pass
 
-    
+
 main_menue()

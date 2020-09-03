@@ -1,11 +1,12 @@
 import core_functionality as cf
 import dice
 
+
 def create_character():
 
-    def stat_choice(stats): 
+    def stat_choice(stats):
         for x in range(4):
-            
+
             if stats[x] == "int":
                 player.int = dice_rolls[x]
 
@@ -35,7 +36,6 @@ def create_character():
 
     dice_rolls = dice.stat_roller()
 
-    #Maybe change the descriptions to a var, print var, and let player write !help to see description again.
     print(
         f"Your dice rolls are {dice_rolls}\nChoose where to put the first roll\n"
         "Int: Increases your intelligence, making you more proficient with spells!\n"
@@ -49,7 +49,5 @@ def create_character():
     stat_4 = input("I want the fourth roll to go to: ").lower()
     stats = []
     stats.extend((stat_1, stat_2, stat_3, stat_4))
-
-
     stat_choice(stats)
     return(player)
