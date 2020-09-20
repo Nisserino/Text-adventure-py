@@ -31,7 +31,7 @@ def main_menue():
 
     while True:
         choice = inputs.check_input(options)
-        if choice != False:
+        if choice is not False:
             break
     if choice == "saves":
         # check for saves, print options, run through base loop as save
@@ -80,4 +80,4 @@ def base_loop(*save):
     return(player)
 
 
-main_menue()
+# main_menue()

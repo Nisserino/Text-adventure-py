@@ -108,6 +108,8 @@ Hitchance decreased for each hit
 
 ## Doing now
 
+__BIG__ rewrite in order to make everything work with cmd module for the loops
+
 # Combat
 
 >Trying to figure out how to implement

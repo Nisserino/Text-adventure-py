@@ -1,12 +1,12 @@
 ## Current thang
 ### Create a working game-loop
 
-While loop, starts off with char creation (until saves are a thing)
-
-Make char
-Place on map
-Make random enemy encounters
-
+Initialize a char by creating a json object and placing all stats etc in it
+when "starting" the game, the game should read the players json file
+To start the gameplay it would want
+- player name
+- player position
+- copleted quests (or something like position in campain)
 
 
 ### Later
@@ -16,4 +16,4 @@ Make random enemy encounters
 
 
 ### Even later, later
-- Inventory (Json?)
+- Inventory (Json?) append to json player file
