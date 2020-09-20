@@ -1,12 +1,19 @@
-## Map problems
+## Current thang
+### Create a working game-loop
 
-How should I make my list? Can I keep the coordinates as some sort of notation?
+While loop, starts off with char creation (until saves are a thing)
 
-And what info should be kept in the map_grid?
+Make char
+Place on map
+Make random enemy encounters
 
-Use try exeptblock to not kill game on IndexError
 
-How should I check if it's possible to move to another block?
 
-Can I pass in a function as an argument in another function?
-If possible, can I keep the while loop for inputs in the input checker function, or do I have to keep it in the function calling the input check?
+### Later
+- give exp for kills
+- give bonus whatever for levelup
+
+
+
+### Even later, later
+- Inventory (Json?)

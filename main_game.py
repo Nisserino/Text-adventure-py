@@ -1,4 +1,6 @@
 import core_functionality as cf
+import game_start
 
-p1 = cf.Ranger("john")
-print(p1.name)
+player = game_start.start_game()
+while True:
+    pass

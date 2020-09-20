@@ -77,8 +77,7 @@ def base_loop(*save):
         print("Let's get you started!")
         player = cc.create_character()
 
-    while True:
-        pass
+    return(player)
 
 
 main_menue()

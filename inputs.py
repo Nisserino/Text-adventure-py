@@ -1,10 +1,8 @@
+def check_input(input_options):
 
+    player_input = input(": ").lower()
 
-def check_input(input_options):  # Seems to get angry, and make you write quit twice
-
-    player_input = input(": ").lower()  # Do fix
-
-    if player_input == "help":  # change to "!help(?)"
+    if player_input == "help":
 
         print(input_options)
         return(False)

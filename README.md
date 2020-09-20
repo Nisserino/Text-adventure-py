@@ -18,8 +18,7 @@ Would be really nice to make it into a multiplayer game, but that's gonna be a w
 
 ### For tomorow (or just later) me!
 
-1. Fix check input, it might need to return something to the base 
-2. Fix game loop input call, and fix it so it aligns with the new way function works
+
 3. Try to move a player object around the "map"
 4. Make map bigger(if 3 works)
 5. Give "back" statement in the input for move options if someone doesn't wanna go anywhere
@@ -33,7 +32,6 @@ Would be really nice to make it into a multiplayer game, but that's gonna be a w
 - Failsafe, so that you're not thrown out with a type error if you write something wrong.
 - Failsafe for when an attack roll would make you deal a negative number in damage(abs would make -1 = 1, so find something else)
 - Game progression, one idea is to create a start quest for each class, and have that as the game tutorial. After completion you get to play with other people, and have a background based on your choices in the tutorial
-- Combat with more than 2 combatants
 - Implement space in combat, and make range a thing worth wile
 
 ### For later
@@ -43,7 +41,7 @@ Would be really nice to make it into a multiplayer game, but that's gonna be a w
 3. More attacks
 4. Crits if d20 lands on 20
 5. Add level for player, and scale enemies with it(or initialize level when creating enemy obj, randomize enemy levels
-6. also add exp)
+6. (also add exp)
 7. Make the text prettier on character creation
 
 ### Stats 
@@ -54,6 +52,7 @@ Would be really nice to make it into a multiplayer game, but that's gonna be a w
 4. intelligence = mana and magic damage
 5. defense = armour for the hit rolls, base: 10 on players
 6. hp = raw hp, modified by constitution
+
 >Stat to add later (Add descriptors)
 1. Wisdom : modifyer on some magic attacks/utility spells
     Also modifyer for spell slots
